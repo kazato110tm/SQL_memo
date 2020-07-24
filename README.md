@@ -97,3 +97,50 @@ DELETE FROM [TABLE_NAME] WHERE [CONDITIONS];
 ex)
 DELETE FROM members WHERE id = 1;
 ```
+
+## WHEREの書き方
+
+### 演算子
+| 記述 | 概要|
+| ---- | ---- |
+| = | 等価 |
+| > | 右不等 |
+| >= | 以上 |
+| < | 左不等 |
+| <= | 以下 |
+| != | 不等価 |
+
+### AND
+条件を追加する．
+```
+SELECT * FROM users WHERE age >= 20 AND age <= 30;
+```
+
+### BETWEEN
+A 以上，B 未満を条件とする．
+```
+SELECT * FROM users WHERE age BETWEEN 20 AND 30;
+```
+
+### LIKE
+部分一致の条件
+```
+SELECT * FROM users WHERE mail_address LIKE "%[String]%";
+```
+### 日付の条件
+```
+SELECT * FROM orders WHERE created_at <= "2015-04-01 00:00:00";
+```
+
+### IN, NOT IN
+- IN
+条件に含まれているuserを取得する，
+```
+SELECT * FROM users WHERE id IN (1, 23, 445);
+```
+
+- NOT IN
+条件に含まれないuserを取得する．
+```
+SELECT * FROM users WHERE id NOT IN (1, 23, 445);
+```
