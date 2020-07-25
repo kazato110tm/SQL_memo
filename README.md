@@ -172,3 +172,43 @@ SELECT * FROM [TABLE_NAME] LIMIT [int];
 ```
 DESCRIBE [TABLE_NAME];
 ```
+
+## 集合関数
+### SUM
+```
+SELECT SUM([column_name]) FROM [TABLE_NAME];
+```
+
+### MAX
+```
+SELECT MAX([column_name]) FROM [TABLE_NAME];
+```
+
+### MIN
+```
+SELECT MIN([column_name]) FROM [TABLE_NAME];
+```
+
+### AVG
+```
+SELECT AVG([column_name]) FROM [TABLE_NAME];
+```
+
+## グループ
+### GROUP BY
+```
+SELECT [FUNCTION_NAME]([column_name_1]) FROM [TABLE_NAME] GROUP BY [column_name_2];
+
+ex)
+SELECT COUNT(*) as 人数, age as 年齢 FROM users WHERE age IS NOT NULL GROUP BY age ORDER BY age;
+```
+
+
+### HAVING
+HAVINGは集合関数の結果をもとに絞り込む．
+```
+SELECT [FUNCTION_NAME]([column_name_1]), [column_name_2] FROM [TABLE_NAME] GROUP BY [column_name_2] HAVING [FUNCTION_NAME]([column_name_1]);
+
+ex)
+SELECT COUNT(*) AS 人数, age as 年齢 FROM users WHERE age IS NOT NULL GROUP BY age HAVING COUNT(*) >= 25 ORDER BY age;
+```
