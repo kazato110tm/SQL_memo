@@ -144,3 +144,7 @@ SELECT * FROM users WHERE id IN (1, 23, 445);
 ```
 SELECT * FROM users WHERE id NOT IN (1, 23, 445);
 ```
+
+## SORTの方法
+
+### ORDER BY
