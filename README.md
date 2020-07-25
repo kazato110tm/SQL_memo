@@ -148,3 +148,27 @@ SELECT * FROM users WHERE id NOT IN (1, 23, 445);
 ## SORTの方法
 
 ### ORDER BY
+指定したカラムでソートする．
+```
+SELECT * FROM [TABLE_NAME] ORDER BY [column_name] [ASC or DESC];
+```
+ASC : 昇順，　DESC : 降順
+
+
+### COUNT
+件数をカウントする．
+```
+SELECT COUNT(*) FROM [TABLE_NAME];
+```
+
+### LIMIT
+件数を制限する．
+```
+SELECT * FROM [TABLE_NAME] LIMIT [int];
+```
+
+### DESCRIBE
+テーブルの定義情報を確認する．
+```
+DESCRIBE [TABLE_NAME];
+```
