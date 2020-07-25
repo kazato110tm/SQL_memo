@@ -215,11 +215,73 @@ SELECT COUNT(*) AS 人数, age as 年齢 FROM users WHERE age IS NOT NULL GROUP 
 
 # テーブルの結合
 ## 内部結合
+2つのテーブルに置いて，共通列が一致するレコードのみを取得する．
+```
+SELECT
+    [TABLE_NAME_A].[column_name_1],
+    [TABLE_NAME_B].[column_name_1],
+    ...
+FROM
+    [TABLE_NAME_A]
+    INNER JOIN [TABLE_NAME_B] ON  [TABLE_NAME_A].[column_name_2] = [TABLE_NAME_B].[column_name_2];
+```
 
 ## 外部結合
+指定された共通列で紐付いているレコード以外も結合テーブルとして作成される．
 
 ## 左外部結合
+TABLE_Aを元として，一致しているレコードは結合し，一致していないレコードはNULLとする．
+```
+SELECT
+    [TABLE_NAME_A].[column_name_1],
+    [TABLE_NAME_B].[column_name_1],
+    ....
+FROM
+    [TABLE_NAME_A]
+    LEFT OUTER JOIN [TABLE_NAME_B] ON  [TABLE_NAME_A].[column_name_2] = [TABLE_NAME_B].[column_name_2];
+```
+
 
 ## 右外部結合
+TABLE_Bを元として，一致しているレコードは結合し，一致していないレコードはNULLとする．
+```
+SELECT
+    [TABLE_NAME_A].[column_name_1],
+    [TABLE_NAME_B].[column_name_1],
+    ....
+FROM
+    [TABLE_NAME_A]
+    RIGHT OUTER JOIN [TABLE_NAME_B] ON  [TABLE_NAME_A].[column_name_2] = [TABLE_NAME_B].[column_name_2];
+```
 
 ## 完全外部結合
+
+```
+SELECT
+    [TABLE_NAME_A].[column_name_1],
+    [TABLE_NAME_B].[column_name_1],
+    ....
+FROM
+    [TABLE_NAME_A]
+    LEFT OUTER JOIN [TABLE_NAME_B] ON  [TABLE_NAME_A].[column_name_2] = [TABLE_NAME_B].[column_name_2]
+UNION
+SELECT
+    [TABLE_NAME_A].[column_name_1],
+    [TABLE_NAME_B].[column_name_1],
+    ....
+FROM
+    [TABLE_NAME_A]
+    RIGHT OUTER JOIN [TABLE_NAME_B] ON  [TABLE_NAME_A].[column_name_2] = [TABLE_NAME_B].[column_name_2];
+```
+
+または
+
+```
+SELECT
+    [TABLE_NAME_A].[column_name_1],
+    [TABLE_NAME_B].[column_name_1],
+    ....
+FROM
+    [TABLE_NAME_A]
+    FULL OUTER JOIN [TABLE_NAME_B] ON  [TABLE_NAME_A].[column_name_2] = [TABLE_NAME_B].[column_name_2];
+```
